@@ -1,7 +1,7 @@
 # Case-study #10
-# Developers:   Aksenov A. (35%),
-#               Soloveychik D. (40%),
-#               Labuzov A. (46%)
+# Developers:   Aksenov A. (%),
+#               Soloveychik D. (%),
+#               Labuzov A. (%)
 
 def runCommand(command):
     """
