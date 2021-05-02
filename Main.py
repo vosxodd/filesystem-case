@@ -23,6 +23,8 @@ def moveUp():
     """
     Делает текущим родительский каталог.
     """
+    path = os.getcwd
+    path=os.path.abspath(os.path.join(path, os.pardir))
 def moveDown(currentDir):
     """
     Запрашивает имя подкаталога. Если имя указано корректно делает каталог находящийся в currentDir текущим, иначе выводит сообщение об ошибке.
