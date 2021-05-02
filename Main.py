@@ -19,6 +19,7 @@ def acceptCommand():
             break
         except ValueError:
             n=input("Неверный номер команды. Повторите ввод: ")
+    return n
 def moveUp():
     """
     Делает текущим родительский каталог.
@@ -53,4 +54,4 @@ def main():
 5.Размер текущего каталога (в байтах)
 6.Поиск файла
 7.Выход из программы""")
-    command=int(input("Выберите пункт меню: "))
+    command=acceptCommand()
