@@ -1,5 +1,5 @@
 # Case-study #10
-# Developers:   Aksenov A. (%),
+# Developers:   Aksenov A. (50%),
 #               Soloveychik D. (%),
 #               Labuzov A. (32%)
 
@@ -7,6 +7,25 @@ def runCommand(command):
     """
     Определяет по номеру команды command, какую функцию следует выполнить.
     """
+    path=os.getcwd
+    if command==5:
+        countBytes(path)
+    if command==6:
+        target=input("Файл: ")
+        path=input("Каталог: ")
+        findFiles(target, path)
+    if command==7:
+        exit()
+    if command==3:
+        currentDir=input("Каталог: ")
+        moveDown(currentDir)
+    if command == 2:
+        moveUp()
+    if command == 1:
+        print(path)
+    if command == 4:
+        path=input("Каталог: ")
+        countFiles(path)
 def acceptCommand():
     """
     Запрашивает номер команды и в случае если номер команды указан некорректно, выводит сообщение об ошибке. Запрос команд осуществляется до тех пор, пока не введен корректный номер команды. Возвращает корректный номеркоманды.
@@ -26,22 +45,27 @@ def moveUp():
     """
     path = os.getcwd
     path=os.path.abspath(os.path.join(path, os.pardir))
+    print("текущий каталог",path)
 def moveDown(currentDir):
     """
     Запрашивает имя подкаталога. Если имя указано корректно делает каталог находящийся в currentDir текущим, иначе выводит сообщение об ошибке.
     """
+    print(currentDir,"не найдено")
 def countFiles(path):
     """
     Рекурсивная функция подсчитывающая количество файлов в указанном каталоге path. В подсчет включаются все файлы, находящиеся в подкаталогах. Возвращает количество файлов.
     """
+    print("Данный каталог не обнаружен, 0 файлов")
 def countBytes(path):
     """
     Рекурсивная функция подсчитывающая суммарный объем (в байтах) всех файлов в указанном каталоге path. В подсчет включаются все файлы, находящиеся в подкаталогах. Возвращает суммарное количество байт.
     """
+    print("Ошибка")
 def findFiles(target, path):
     """
     Рекурсивная функция, формирующая список путей к файлам, в имени которых содержится target. В поиск включаются все подкаталоги каталога path. В случае если файлы не найдены, выводит соответствующее сообщение.
     """
+    print("В",path,"не содержится",target)
 def main():
     """
     Основная программа, которая выводит путь к текущему каталогу и меню. Вызывает функцию выполнения команд.
@@ -55,5 +79,7 @@ def main():
 5.Размер текущего каталога (в байтах)
 6.Поиск файла
 7.Выход из программы""")
-    command=acceptCommand()
-    runCommand(command)
+    while True:
+        command=acceptCommand()
+        runCommand(command)
+main()
