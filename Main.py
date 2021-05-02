@@ -56,3 +56,4 @@ def main():
 6.Поиск файла
 7.Выход из программы""")
     command=acceptCommand()
+    runCommand(command)
